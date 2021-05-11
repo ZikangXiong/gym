@@ -38,8 +38,7 @@ class Env(object):
     action_space = None
     observation_space = None
 
-    @abstractmethod
-    def step(self, action):
+    def step(self, action, **kwargs):
         """Run one timestep of the environment's dynamics. When end of
         episode is reached, you are responsible for calling `reset()`
         to reset this environment's state.
@@ -244,8 +243,8 @@ class Wrapper(Env):
     def class_name(cls):
         return cls.__name__
 
-    def step(self, action):
-        return self.env.step(action)
+    def step(self, action, **kwargs):
+        return self.env.step(action, **kwargs)
 
     def reset(self, **kwargs):
         return self.env.reset(**kwargs)
