@@ -57,7 +57,7 @@ class Env(object):
         raise NotImplementedError
 
     @abstractmethod
-    def reset(self):
+    def reset(self, **kwargs):
         """Resets the environment to an initial state and returns an initial
         observation.
 
